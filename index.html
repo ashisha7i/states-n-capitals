@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>States & Capitals</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.2.0/handlebars.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+    // Get state and capitals data
+    let stateAndCapitalsData = getStatesAndCapitalsData();
+
+    // Initializing an Array to keep a track of already used indexes
+    let usedIndexes = [];
+
+    // Initiating the rendering of templates on DOM content load
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        render_template("welcome", {title: "AMy New Post " + questions, body: "AThis is my first post!!"});
+        
+        document.getElementById("btn-next").addEventListener('click', function(){
+            let randomIndex = Math.floor(Math.random() * 50);
+            while (usedIndexes.indexOf(randomIndex) != -1) {
+                randomIndex = Math.floor(Math.random() * 50); // returns a random integer from 0 to 49
+            }
+
+            data = {};
+            
+            console.log(usedIndexes);
+            usedIndexes.push(randomIndex);
+
+            if(usedIndexes.length == 0 || (usedIndexes.length == stateAndCapitalsData.length)) {
+                console.log("Yo");
+                document.getElementById("btn-next").style.display = "none";
+            }
+            
+            let stateInfo = stateAndCapitalsData[randomIndex];
+            
+            data["stateInfo"] = stateInfo;
+            data["viewed-count"] = usedIndexes.length;
+            data["total-count"] = stateAndCapitalsData.length;
+            
+            
+
+            render_template("state-and-capital", data);
+        });
+    
+    });
+    </script>
+</head>
+<body>
+    <!-- "Card" Handlebar Template -->
+    <script id="state-and-capital" type="text/x-handlebars-template">
+        <div class="card">
+            <div id="viewed-count">{{viewed-count}} of {{total-count}}</div>
+            <div>
+                <h1>{{stateInfo.name}}  ({{stateInfo.abbr}})</h1>
+                <h1 class="appear">{{stateInfo.capital}}</h1>
+            </div>
+        </div>
+    </script>
+
+    <!-- The Welcome Template -->
+    <script id="welcome" type="text/x-handlebars-template">
+        <section>
+            <div class="card">
+                <div>
+                    <h1>WELCOME</h1>
+                    <h1>Click the button below to start!</h1>
+                </div>
+            </div>
+        </section>
+    </script>
+
+    <section>
+        <div id="output"></div>
+    </section>
+    
+    <section>
+        <div id="nav"><a href="#" class="btn" id="btn-next">Next</a></div>
+    </section>
+</body>
+</html>

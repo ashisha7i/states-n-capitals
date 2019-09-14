@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main Styling */
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7em;
+}
+
+.card {
+    border: 1px solid black;
+    padding: 5px 20px;
+    border-radius: 10px;
+    background-color: #efefef;
+    max-width: 500px;
+    min-width: 500px;
+    min-height: 150px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 5px 5px #cfcfcf;
+    animation: ease-in 5;
+    margin-bottom: 20px;
+}
+
+.card h1 {
+    line-height: 2em;
+}
+
+
+#nav {
+    margin: auto;
+    width: 100px;
+    text-align: center;
+}
+
+.btn {
+    padding: 5px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #4c72ec;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-start {
+    background-color: #1cee09;
+}
+
+.btn:hover {
+    background-color:  #778fdf;
+}
+
+.appear {
+    animation: my-fade-in 5s;
+}
+
+@keyframes my-fade-in {
+    0% { color: #efefef;}
+    50% { color: #efefef;}
+    100% { color: #000000;}
+}

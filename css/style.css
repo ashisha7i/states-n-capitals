@@ -23,6 +23,7 @@ html, body {
     box-shadow: 5px 5px #cfcfcf;
     animation: ease-in 5;
     margin-bottom: 20px;
+    margin-top:40px;
 }
 
 .card h1 {

@@ -27,12 +27,14 @@
 
             data = {};
             
-            console.log(usedIndexes);
             usedIndexes.push(randomIndex);
 
             if(usedIndexes.length == 0 || (usedIndexes.length == stateAndCapitalsData.length)) {
-                console.log("Yo");
                 document.getElementById("btn-next").style.display = "none";
+                let messageDiv = document.createElement("div");
+                messageDiv.innerHTML = "You have reached the end of the list. <br>Please reload the page to start again.";
+                messageDiv.style.textAlign = "center";
+                document.getElementsByTagName("body")[0].appendChild(messageDiv);
             }
             
             let stateInfo = stateAndCapitalsData[randomIndex];

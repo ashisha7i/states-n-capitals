@@ -57,7 +57,7 @@ html, body {
 }
 
 .appear {
-    animation: my-fade-in 5s;
+    animation: my-fade-in 3.5s;
 }
 
 @keyframes my-fade-in {
